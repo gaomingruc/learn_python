@@ -14,3 +14,7 @@
 # Decorator
 - 版本管理
   - v0.5 完成装饰器案例
+
+# BrownianMotion
+- 版本管理
+  - v0.6 完成疫情模拟初步功能
