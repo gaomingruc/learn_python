@@ -22,6 +22,7 @@
     - v0.7.1 完成功能设想思路
     - v0.7.2 删除虚拟环境，设置requirements.txt
     - v0.7.3 删除虚拟环境，设置requirements.txt
+    - v0.7.4 完善.gitignore
 - 功能设想
   - 治疗者
   - 变异
