@@ -20,11 +20,13 @@ class CountDownClock(threading.Thread):
 
 class ThreadAdd(threading.Thread):
     thread_add_number = 0
+    threads = list()
 
     def __init__(self):
         super().__init__()
         self.result = 0
         ThreadAdd.thread_add_number += 1
+        ThreadAdd.threads.append(self)
 
     def add(self):
         while count_down_clock.time_left:
@@ -36,14 +38,14 @@ class ThreadAdd(threading.Thread):
 
     @classmethod
     def add_all(cls):
-        # todo
-        print(cls.thread_add_number)
+        for thread in cls.threads:
+            cls.thread_add_number += thread.result
 
 
 if __name__ == "__main__":
     result_main_process = 0
 
-    count_down_clock = CountDownClock(5)
+    count_down_clock = CountDownClock(60)
     count_down_clock.start()
 
     thread_add_1 = ThreadAdd()
@@ -54,9 +56,9 @@ if __name__ == "__main__":
     thread_add_2.start()
     thread_add_3.start()
 
-    ThreadAdd.add_all()
-
     while count_down_clock.time_left:
         result_main_process += 1
 
     print("result_main_process:", result_main_process)
+    ThreadAdd.add_all()
+    print("result_sub_threads:", ThreadAdd.thread_add_number)
