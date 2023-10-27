@@ -41,3 +41,7 @@
   - v0.8
   - v0.9 测试线程速度
     - v0.9.1 完成thread_speed_test.py
+
+# Spider
+- learn_requests
+  v0.10.1 https://www.baidu.com/sugrec借口
